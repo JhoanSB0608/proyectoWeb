@@ -573,4 +573,53 @@ nav ul {
     .aboutus .textbox_aboutus button:hover {
         scale: 1
     }
+
+    .Menu {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Menu p:first-child {
+        margin-top: 0px;
+        font-size: 5vw
+    }
+
+    .Menu h2 {
+        margin: 15px 0px 15px 0px;
+        font-size: 8vw
+    }
+
+    .menuGallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-inline: 0px;
+        gap: 30px;
+        place-content: center;
+        padding-inline: 30px
+    }
+
+    .menuGallery .food {
+        height: 100%;
+        padding: 15px
+    }
+
+    .menuGallery .food img {
+        margin: 0px;
+        padding: 0px;
+        width: 60%;
+    }
+
+    .menuGallery .food p:nth-child(2) {
+        font-size: 6vw;
+    }
+
+    .menuGallery .food p:nth-child(3) {
+        font-size: 5vw;
+    }
+
+    .menuGallery .food p:nth-child(4) {
+        font-size: 5vw;
+    }
 }
