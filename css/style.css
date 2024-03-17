@@ -514,4 +514,63 @@ nav ul {
     .home .fws img {
         width: 90%;
     }
+
+    .abouts {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        gap: 5vw;
+        position: relative;
+    }
+
+    .aboutus img {
+        height: 40%;
+        width: auto;
+        position: absolute;
+        bottom: 0
+    }
+
+    .aboutus .textbox_aboutus {
+        width: 100vw;
+        height: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutus .textbox_aboutus p:first-child {
+        color: var(--color-naranja);
+        font-size: 5vw;
+        margin-top: 50px;
+    }
+
+    .aboutus .textbox_aboutus p:nth-child(4) {
+        color: var(--color-white);
+        font-size: 5vw;
+        margin-top: 15px
+    }
+
+    .textbox_aboutus .textbox_aboutus.textbox_aboutus b {
+        color: var(--color-white);
+        font-size: 8vw;
+    }
+
+    .textbox_aboutus.textbox_aboutus :nth-child(3) {
+        color: var(--color-white);
+        margin-top: 0px;
+        font-size: 1.3vw;
+    }
+
+    .textbox_aboutus .textbox_aboutus.textbox_aboutus button {
+        width: 35%;
+        height: 5vh;
+        font-size: 5vw;
+        margin-top: 15px;
+    }
+
+    .aboutus .textbox_aboutus button:hover {
+        scale: 1
+    }
 }
