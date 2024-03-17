@@ -1,58 +1,61 @@
 @import url(variables.css);
 
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
+
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
-button{
+
+button {
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
 
     scale: 1.2;
     transition: 0.3s;
 }
-body{
+
+body {
 
     width: 100%;
     display: grid;
     height: auto;
     grid-template: 100px repeat(5, 40vw) 15vw /1fr;
     background-color: var(--color-background)
-
 }
 
-header{
+header {
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 60px
-
 }
 
-.checkbtn, #check {
+.checkbtn,
+#check {
     display: none;
 }
 
 
-header h1{
+header h1 {
     font-size: 3vw;
     color: var(--color-naranja);
 }
 
-header nav{
+header nav {
 
     padding-right: 30px;
 }
+
 header nav ul li {
 
     display: flex;
@@ -64,22 +67,70 @@ header nav ul li {
     cursor: pointer;
 }
 
-header nav ul li a{
+header nav ul li a {
     color: var(--color-white);
     transition: 0.4s;
 }
 
-header nav ul li a:hover{
+header nav ul li a:hover {
 
     color: var(--color-naranja);
-    
+
 }
 
-nav ul{
+nav ul {
 
     display: flex;
     height: 100px;
     width: 30vw;
     align-items: center;
 
+}
+
+.home .fws {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.fws .textbox_fws {
+    width: 35%;
+    height: 50%;
+}
+
+.home .fws .textbox_fws h2 {
+
+    color: var(--color-naranja);
+    font-size: 5vw;
+
+}
+
+.home .fws .textbox_fws p {
+
+    color: var(--color-white);
+    font-size: 2.2vw;
+}
+
+.home .fws .textbox_fws p:nth-child(3) {
+
+    margin-bottom: 25px;
+}
+
+.home .fws .textbox_fws button {
+
+    width: 35%;
+    height: 5vh;
+    background-color: var(--color-naranja);
+    border: var(--color-naranja);
+    color: var(--color-white);
+    font-size: 1vw;
+
+}
+
+.home .fws img {
+
+    width: 35%;
 }
