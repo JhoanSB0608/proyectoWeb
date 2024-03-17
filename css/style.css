@@ -18,13 +18,11 @@ button {
 }
 
 button:hover {
-
     scale: 1.2;
     transition: 0.3s;
 }
 
 body {
-
     width: 100%;
     display: grid;
     height: auto;
@@ -33,7 +31,6 @@ body {
 }
 
 header {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,12 +49,10 @@ header h1 {
 }
 
 header nav {
-
     padding-right: 30px;
 }
 
 header nav ul li {
-
     display: flex;
     list-style: none;
     width: 30vw;
@@ -73,27 +68,21 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-
     color: var(--color-naranja);
-
 }
 
 nav ul {
-
     display: flex;
     height: 100px;
     width: 30vw;
     align-items: center;
-
 }
 
 .home .fws {
-
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-
 }
 
 .fws .textbox_fws {
@@ -102,25 +91,21 @@ nav ul {
 }
 
 .home .fws .textbox_fws h2 {
-
     color: var(--color-naranja);
     font-size: 5vw;
 
 }
 
 .home .fws .textbox_fws p {
-
     color: var(--color-white);
     font-size: 2.2vw;
 }
 
 .home .fws .textbox_fws p:nth-child(3) {
-
     margin-bottom: 25px;
 }
 
 .home .fws .textbox_fws button {
-
     width: 35%;
     height: 5vh;
     background-color: var(--color-naranja);
@@ -131,7 +116,6 @@ nav ul {
 }
 
 .home .fws img {
-
     width: 35%;
 }
 
@@ -209,7 +193,6 @@ nav ul {
     margin-inline: 50px;
     gap: 30px;
     place-content: center;
-
 }
 
 .menuGallery .food {
@@ -250,7 +233,6 @@ nav ul {
 }
 
 .servicios h2 {
-
     margin: 15px 0px 30px 0px;
     color: var(--color-white);
     font-size: 2.5vw
@@ -343,7 +325,6 @@ nav ul {
 .circles {
     margin-top: 15px
 }
-
 
 .container_footer ul li {
     list-style: none;
