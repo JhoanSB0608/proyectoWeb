@@ -311,3 +311,65 @@ nav ul {
     border: var(--color-naranja);
     color: var(--color-white)
 }
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.container_footer {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_footer:last-child {
+    width: 10%;
+}
+
+.line {
+    height: 2px;
+    width: 30%;
+    background-color: var(--color-naranja);
+}
+
+.container_footer h3 {
+    color: var(--color-white);
+    font-size: 1.5vw;
+}
+
+.container_footer ul,
+.circles {
+    margin-top: 15px
+}
+
+
+.container_footer ul li {
+    list-style: none;
+    color: var(--color-white);
+    font-size: 1.1vw;
+}
+
+.itemCircle {
+    width: 10%;
+}
+
+.itemCircle h3 {
+    color: var(--color-white);
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.lineContact {
+    height: 2px;
+    width: 40%;
+    background-color: var(--color-naranja);
+}
+
+.circles {
+    color: var(--color-naranja);
+    display: flex;
+    gap: 10px
+}
