@@ -134,3 +134,52 @@ nav ul {
 
     width: 35%;
 }
+
+
+.aboutus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+}
+
+.aboutus img {
+    width: 35%;
+}
+
+.aboutus .textbox_aboutus {
+    width: 35%;
+    height: 45%;
+}
+
+.aboutus .textbox_aboutus p:first-child {
+    color: var(--color-naranja);
+    font-size: 1.7vw;
+    margin-bottom: 15px;
+}
+
+.aboutus .textbox_aboutus p:nth-child(4) {
+    color: var(--color-white);
+    font-size: 1.3vw;
+}
+
+.aboutus .textbox_aboutus b {
+    color: var(--color-white);
+    font-size: 3vw;
+}
+
+.textbox_aboutus :nth-child(3) {
+    color: var(--color-white);
+    margin-top: 15px;
+    font-size: 1.3vw;
+}
+
+.aboutus .textbox_aboutus button {
+    width: 35%;
+    height: 5vh;
+    background-color: var(--color-naranja);
+    border: var(--color-naranja);
+    color: var(--color-white);
+    font-size: 1vw;
+    margin-top: 15px;
+}
