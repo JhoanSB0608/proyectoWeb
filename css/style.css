@@ -279,3 +279,35 @@ nav ul {
     font-size: 1.2vw;
     padding: 10px 20px 10px 20px
 }
+
+.qualityFood {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qualityFood .container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-beige);
+    font-size: 2vw;
+}
+
+.qualityFood .container h2 {
+    display: flex;
+    text-align: center;
+}
+
+.qualityFood .container button {
+    width: 15%;
+    height: 5vh;
+    font-size: 1vw;
+    background-color: var(--color-naranja);
+    border: var(--color-naranja);
+    color: var(--color-white)
+}
