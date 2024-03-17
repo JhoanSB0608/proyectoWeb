@@ -468,4 +468,50 @@ nav ul {
         width: 30vw;
         align-items: center;
     }
+
+    .home .fws {
+
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100vw;
+    }
+
+    .fws .textbox_fws {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home .fws .textbox_fws h2 {
+        font-size: 13vw;
+        text-align: center;
+    }
+
+    .home .fws .textbox_fws p {
+        color: var(--color-white);
+        font-size: 6vw;
+    }
+
+    .home .fws .textbox_fws p:nth-child(3) {
+        margin-bottom: 25px;
+    }
+
+    .home .fws .textbox_fws button {
+        width: 45%;
+        height: 5vh;
+        background-color: var(--color-naranja);
+        border: var(--color-naranja);
+        color: var(--color-white);
+        font-size: 5vw;
+    }
+
+    .home .fws .textbox_fws button:hover {
+        scale: 1;
+    }
+
+    .home .fws img {
+        width: 90%;
+    }
 }
