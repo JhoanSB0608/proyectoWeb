@@ -41,17 +41,10 @@ header {
 #check {
     display: none;
     color: var(--color-naranja);
-    width: 16px;
-    height: 16px;
+    font-size: 48px;
+    top: 35px;
+    right: 40px;
 }
-
-.checkbtn i,
-#check {
-    color: var(--color-naranja);
-    width: 16px;
-    height: 16px;
-}
-
 
 header h1 {
     font-size: 3vw;
@@ -342,6 +335,12 @@ nav ul {
     font-size: 1.1vw;
 }
 
+.container_footer ul li a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--color-white);
+}
+
 .itemCircle {
     width: 10%;
 }
@@ -363,6 +362,10 @@ nav ul {
     color: var(--color-naranja);
     display: flex;
     gap: 10px
+}
+
+.circles i {
+    font-size: 32px;
 }
 
 @media (max-width: 765px) {
@@ -758,5 +761,9 @@ nav ul {
         display: flex;
         gap: 10px;
         color: var(--color-naranja);
+    }
+
+    .circles i {
+        font-size: 32px;
     }
 }
