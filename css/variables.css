@@ -1,8 +1,27 @@
 :root {
-    --color-orange: #ff702a;
+    --color-background: #0c1b74e0;
     --color-white: #ffff;
-    --color-background: #1e1d2b;
-    --color-black: #000;
-    --color-beige: #ffefe8;
-    --color-responsive: #2c2b47;
+    --color-black: #000000;
+    --color-gray: #6E7191;
+    --color-product: #211d1d;
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url("../storage/fonts/Noto_Sans_Display/static/NotoSansDisplay_SemiCondensed-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Black";
+    src: url("../storage/fonts/Noto_Sans_Display/static/NotoSansDisplay_SemiCondensed-Black.ttf");
+}
+
+@font-face {
+    font-family: "Semibold";
+    src: url("../storage/fonts/Noto_Sans_Display/static/NotoSansDisplay_SemiCondensed-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Light";
+    src: url("../storage/fonts/Noto_Sans_Display/static/NotoSansDisplay_SemiCondensed-Light.ttf");
 }
