@@ -33,19 +33,22 @@ aside h1 {
     font-size: 2.5vw;
     color: var(--color-white);
     font-family: "Protest Revolution";
-    /* anima
-    text-shadow: 0 0 20px #fff, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
-    animation: glow 1.5s ease-in-out infinite alternate; */
-}
-
-aside h3 {
-    display: none;
+    text-shadow: 0 0 30px #fff, 0 0 60px #929292, 0 0 90px #929292, 0 0 120px #929292, 0 0 150px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-align: center;
 }
 
 aside a {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+aside p {
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .productOptions {
@@ -114,18 +117,22 @@ main {
     -moz-border-radius: 40px ;
     -ms-border-radius: 40px ;
     -o-border-radius: 40px ;
+    box-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 main h1 {
     font-family: "Black";
     font-size: 3vw;
     text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .carritoPRODUCTOS {
     display: grid;
     gap: 10px;
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(25vh, 1fr));
 }
 
 .carritoProducto {
@@ -133,7 +140,7 @@ main h1 {
     display: grid;
     grid-template-columns: 1.5fr 1.4fr repeat(4, 1fr);
     grid-template-rows: 1fr;
-    height: 190px;
+    height: 25vh;
     border-radius: 25px;
     border: 1px solid var(--color-product);
     transition: 0.2s;
@@ -144,8 +151,8 @@ main h1 {
 
 
 .carritoProductoImagen{
-    height: 25vh;
-    width: 30vh;
+    height: 20vh;
+    width: 25vh;
     border-radius: 25px;
     position: relative;
     box-shadow: 0px 0px 10px var(--color-product);
@@ -201,21 +208,35 @@ main h1 {
     font-family: "Light";
 }
 
-.carritoProductoCantidad input {
+.carritoProductoCantidad button {
+    border: none;
+}
+
+.carritoProductoCantidad button input {
     max-width: 100px;
     max-height: 2rem;
     overflow: hidden;
+    border: none;
+    display: grid;
+    place-content: center;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    width: 15rem;
+    height: 3rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    transition: 0.2s;
 }
 
-.carritoProductoCantidad input[type="number"] {
+.carritoProductoCantidad button input[type="number"] {
     text-align: center;
   }
 
-.carritoProducto i {
+.carritoProducto a i {
     display: flex;
     justify-self: center;
     font-size: 3.5rem;
-    color: var(--color-vine);
+    color: var(--color-black);
     transition: 0.2s;
 }
 
