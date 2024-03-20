@@ -116,59 +116,92 @@ aside #copy {
 main {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: .1rem 1rem 1rem 1rem;
     height: 100%;
     background-color: var(--color-white);
-    border-radius: 50px ;
-    gap: 10px;
+    border-radius: 40px ;
+    gap: 5px;
     overflow-y: scroll;
+    -webkit-border-radius: 40px ;
+    -moz-border-radius: 40px ;
+    -ms-border-radius: 40px ;
+    -o-border-radius: 40px ;
 }
 
 main h1 {
     font-family: "Black";
-    font-size: 2vw;
+    font-size: 3vw;
+    text-align: center;
 }
 
 .PRODUCTS {
     display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(33.3vh, 1fr));
 }
 
 .product {
-    height: 340px;
+    height: 39vh;
     border-radius: 25px;
-    border: 1px solid var(--color-product);
-    transition: 0.2s;
-    background-color: var(--color-white);
+    position: relative;
+    box-shadow: 0px 0px 10px var(--color-product);
+    background-color: white;
+    transition: 0.5s;
+    border: 1px solid var(--color-black);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 
-.product .productImagen {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    height: 75%;
-}
+.product:hover{
 
-.product .productImagen img {
-    max-height: 100%;
-    object-fit: cover;
-    transition: 0.2s;
-}
-
-.product:hover {
+    scale: 1.05;
     border: none;
-    scale: 1.03;
-    filter: drop-shadow(0px 0px 5px var(--color-product));
+    box-shadow: 0px 0px 10px var(--color-gray);
+    
+}
+
+.product .productImagen img{
+    position: absolute;
+}
+
+.product .productImagen img:nth-child(2){
+
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+
+.product .productImagen img:nth-child(2):hover{
+    opacity: 1;
+}
+
+.product .productImagen img:nth-child(2):hover + .product .productImagen img:nth-child(1):hover{
+    opacity: 0;
+}
+
+.product .productImagen img{
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 75%;
+    object-fit: cover;
 }
 
 .productDescripcion {
-    position: relative;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--color-product);
     padding: 1rem;
-    border-radius: 25px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     background-color: var(--color-product);
     height: 25%;
     font-size: 1rem;
