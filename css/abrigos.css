@@ -14,31 +14,11 @@ body {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
-    background-color: var(--color-background);
+    background-color: var(--color-black);
     padding: 2vw;
 }
 
 /* Aside */
-
-.PRODUCTOS,
-.carritoPRODUCT,
-#empty {
-    opacity: 0;
-    transition: 1s;
-    animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 aside {
     padding-block: 1vw;
@@ -46,26 +26,29 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    background-color: var(--color-background);
+    background-color: var(--color-black);
 }
 
 aside h1 {
     font-size: 2.5vw;
     color: var(--color-white);
     font-family: "Protest Revolution";
-    /* anima
-    text-shadow: 0 0 20px #fff, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
-    animation: glow 1.5s ease-in-out infinite alternate; */
-}
-
-aside h3 {
-    display: none;
+    text-shadow: 0 0 30px #fff, 0 0 60px #929292, 0 0 90px #929292, 0 0 120px #929292, 0 0 150px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-align: center;
 }
 
 aside a {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+aside p {
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .productOptions {
@@ -75,8 +58,15 @@ aside a {
     align-items: center;
 }
 
-aside .productOptions a img {
-    fill: var(--color-black);
+.productOptions a img,
+.carrito img {
+    filter: brightness(0) invert(1); /* Cambia el color del logo a blanco */
+    transition: filter 0.3s ease; /* Agrega una transición suave */
+}
+
+.productOptions a:hover img,
+.carrito:hover img {
+    filter: brightness(0) invert(0); /* Cambia el color del logo a negro */
 }
 
 .productOption,
@@ -126,12 +116,16 @@ main {
     -moz-border-radius: 40px ;
     -ms-border-radius: 40px ;
     -o-border-radius: 40px ;
+    box-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 main h1 {
     font-family: "Black";
     font-size: 3vw;
     text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .pag_abrigos {
