@@ -1,0 +1,227 @@
+@import url(variables.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Semibold";
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 2vw;
+}
+
+/* Aside */
+
+.PRODUCTOS,
+.carritoPRODUCT,
+#empty {
+    opacity: 0;
+    transition: 1s;
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+aside {
+    padding-block: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--color-background);
+}
+
+aside h1 {
+    font-size: 2.5vw;
+    color: var(--color-white);
+    font-family: "Protest Revolution";
+    /* anima
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
+    animation: glow 1.5s ease-in-out infinite alternate; */
+}
+
+aside h3 {
+    display: none;
+}
+
+aside a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.productOptions {
+    height: 30%;
+    display: grid;
+    grid-template: repeat(4, 1fr);
+    align-items: center;
+}
+
+aside .productOptions a img {
+    fill: var(--color-black);
+}
+
+.productOption,
+.carrito {
+    color: var(--color-white);
+    border-radius: 20px 0px 0px 20px;
+    padding: 10px;
+    font-size: 1.5vw;
+    transition: 0.2s;
+}
+
+.carrito span {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    width: 15%;
+    color: var(--color-product);
+}
+
+.productOption:hover,
+.carrito:hover,
+.carrito a:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 1.6vw;
+    transition: .5s;
+    animation: fadeInUp 0.3s forwards;
+}
+
+aside #copy {
+    color: var(--color-white);
+    font-size: 1.8vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+    background-color: var(--color-white);
+    border-radius: 50px ;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+main h1 {
+    font-family: "Black";
+    font-size: 2vw;
+}
+
+.carritoPRODUCTOS {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.carritoProducto {
+    padding: 1vw;
+    display: grid;
+    grid-template-columns: 1.5fr 1.4fr repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    height: 190px;
+    border-radius: 25px;
+    border: 1px solid var(--color-product);
+    transition: 0.2s;
+    background-color: var(--color-white);
+    align-items: center;
+    font-size: 1.7rem;
+}
+
+.carritoProductoImagen {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.carritoProductoImagen img {
+    width: 100%;
+    max-height: 160px;
+    object-fit: contain;
+    transition: 0.2s;
+}
+
+.carritoProducto p:last-child{
+    font-family: "Light";
+}
+
+.carritoProductoCantidad p:last-child {
+    max-width: 100px;
+    max-height: 2rem;
+    overflow: hidden;
+}
+
+.carritoProducto i {
+    display: flex;
+    justify-self: center;
+    font-size: 3.5rem;
+    color: var(--color-vine);
+    transition: 0.2s;
+}
+
+.carritoProducto i:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+.optionsCarrito {
+    margin-top: 2%;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.optionsCarrito a, .total button {
+    border: none;
+    display: grid;
+    place-content: center;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    width: 15rem;
+    height: 3rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    transition: 0.2s;
+}
+
+.optionsCarrito a:hover, .total button:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.total {
+    display: flex;
+    padding: 1.2rem;
+    color: var(--color-white);
+    font-size: 2.3rem;
+    width: 30rem;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--color-product);
+    align-items: center;
+    justify-content: space-between;
+}
