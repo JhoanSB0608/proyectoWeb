@@ -1,0 +1,235 @@
+@import url(variables.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Semibold";
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    background-color: var(--color-background);
+    padding: 2vw;
+}
+
+/* Aside */
+
+.PRODUCTOS,
+.carritoPRODUCT,
+#empty {
+    opacity: 0;
+    transition: 1s;
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+aside {
+    padding-block: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: var(--color-background);
+}
+
+aside h1 {
+    font-size: 2.5vw;
+    color: var(--color-white);
+    font-family: "Protest Revolution";
+    /* anima
+    text-shadow: 0 0 20px #fff, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
+    animation: glow 1.5s ease-in-out infinite alternate; */
+}
+
+aside h3 {
+    display: none;
+}
+
+aside a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.productOptions {
+    height: 30%;
+    display: grid;
+    grid-template: repeat(4, 1fr);
+    align-items: center;
+}
+
+aside .productOptions a img {
+    fill: var(--color-black);
+}
+
+.productOption,
+.carrito {
+    color: var(--color-white);
+    border-radius: 20px 0px 0px 20px;
+    padding: 10px;
+    font-size: 1.5vw;
+    transition: 0.2s;
+}
+
+.carrito span {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    width: 15%;
+    color: var(--color-product);
+}
+
+.productOption:hover,
+.carrito:hover,
+.carrito a:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 1.6vw;
+    transition: .5s;
+    animation: fadeInUp 0.3s forwards;
+}
+
+aside #copy {
+    color: var(--color-white);
+    font-size: 1.8vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+    background-color: var(--color-white);
+    border-radius: 50px ;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+main h1 {
+    font-family: "Black";
+    font-size: 2vw;
+}
+
+.pag_zapatos {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(33.3vh, 1fr));
+}
+
+.zapatos{
+    height: 39vh;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: 0px 0px 10px var(--color-product);
+    background-color: white;
+    transition: 0.5s;
+    border: 1px solid var(--color-black);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.zapatos:hover{
+
+    scale: 1.05;
+    border: none;
+    box-shadow: 0px 0px 10px var(--color-gray);
+    
+}
+
+.zapatos .zapatosImagen img{
+    position: absolute;
+}
+
+.zapatos .zapatosImagen img:nth-child(2){
+
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+
+.zapatos .zapatosImagen img:nth-child(2):hover{
+    opacity: 1;
+}
+
+.zapatos .zapatosImagen img:nth-child(2):hover + .zapatos .zapatosImagen img:nth-child(1):hover{
+    opacity: 0;
+}
+
+
+.zapatos .zapatosImagen img{
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 75%;
+    object-fit: cover;
+}
+
+.zapatosDescripcion {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-product);
+    padding: 1rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: var(--color-product);
+    height: 25%;
+    font-size: 1rem;
+    color: var(--color-white);
+}
+
+
+.zapatosDescripcion :first-child {
+    font-family: "Black";
+}
+
+.zapatosDescripcion :nth-child(2) {
+    font-family: "Light";
+}
+
+.zapatosDescripcion button {
+    position: absolute;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    border: none;
+    border-radius: 25px;
+    padding-inline: 0.7rem;
+    padding-block: 0.2rem;
+    font-size: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    transition: 0.2s;
+}
+
+.zapatosDescripcion button:hover {
+    background-color: var(--color-white);
+    color: var(--color-gray);
+    scale: 1.1;
+    cursor: pointer;
+}
