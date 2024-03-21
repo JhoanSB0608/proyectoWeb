@@ -9,7 +9,6 @@
 
 }
 
-
 button {
     cursor: pointer;
 }
@@ -96,7 +95,6 @@ nav ul {
 .home .fws .textbox_fws h2 {
     color: var(--color-naranja);
     font-size: 5vw;
-
 }
 
 .home .fws .textbox_fws p {
@@ -115,13 +113,11 @@ nav ul {
     border: var(--color-naranja);
     color: var(--color-white);
     font-size: 1vw;
-
 }
 
 .home .fws img {
     width: 35%;
 }
-
 
 .aboutus {
     display: flex;
@@ -740,7 +736,6 @@ nav ul {
     .circulos {
         margin-top: 15px
     }
-
 
     .container_footer ul li {
         font-size: 4vw;
