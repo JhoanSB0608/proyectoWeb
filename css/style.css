@@ -104,6 +104,8 @@ aside .productOptions a img {
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 1.6vw;
+    transition: .5s;
+    animation: fadeInUp 0.3s forwards;
 }
 
 aside #copy {
