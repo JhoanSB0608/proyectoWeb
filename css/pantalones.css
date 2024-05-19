@@ -33,19 +33,22 @@ aside h1 {
     font-size: 2.5vw;
     color: var(--color-white);
     font-family: "Protest Revolution";
-    /* anima
-    text-shadow: 0 0 20px #fff, 0 0 40px #ff8c00, 0 0 60px #ff8c00, 0 0 80px #ff8c00, 0 0 100px #ff8c00;
-    animation: glow 1.5s ease-in-out infinite alternate; */
-}
-
-aside h3 {
-    display: none;
+    text-shadow: 0 0 30px #fff, 0 0 60px #929292, 0 0 90px #929292, 0 0 120px #929292, 0 0 150px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    text-align: center;
 }
 
 aside a {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+aside p {
+    text-shadow: 0 0 20px #fff, 0 0 40px #929292, 0 0 60px #929292, 0 0 80px #929292, 0 0 100px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .productOptions {
@@ -114,12 +117,16 @@ main {
     -moz-border-radius: 40px ;
     -ms-border-radius: 40px ;
     -o-border-radius: 40px ;
+    box-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 main h1 {
     font-family: "Black";
     font-size: 3vw;
     text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
+    animation: glow 1.5s ease-in-out infinite alternate;
 }
 
 .pag_pantalones {
