@@ -14,31 +14,11 @@ body {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
-    background-color: var(--color-background);
+    background-color: var(--color-black);
     padding: 2vw;
 }
 
 /* Aside */
-
-.PRODUCTOS,
-.carritoPRODUCT,
-#empty {
-    opacity: 0;
-    transition: 1s;
-    animation: fadeInUp 0.5s forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 aside {
     padding-block: 1vw;
@@ -46,7 +26,7 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    background-color: var(--color-background);
+    background-color: var(--color-black);
 }
 
 aside h1 {
@@ -75,9 +55,17 @@ aside a {
     align-items: center;
 }
 
-aside .productOptions a img {
-    fill: var(--color-black);
+.productOptions a img,
+.carrito img {
+    filter: brightness(0) invert(1); /* Cambia el color del logo a blanco */
+    transition: filter 0.3s ease; /* Agrega una transición suave */
 }
+
+.productOptions a:hover img,
+.carrito:hover img {
+    filter: brightness(0) invert(0); /* Cambia el color del logo a negro */
+}
+
 
 .productOption,
 .carrito {
@@ -134,13 +122,13 @@ main h1 {
     text-align: center;
 }
 
-.pag_zapatos {
+.pag_pantalones {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(33.3vh, 1fr));
 }
 
-.zapatos{
+.pantalones{
     height: 39vh;
     border-radius: 25px;
     position: relative;
@@ -154,7 +142,7 @@ main h1 {
     -o-border-radius: 25px;
 }
 
-.zapatos:hover{
+.pantalones:hover{
 
     scale: 1.05;
     border: none;
@@ -162,26 +150,25 @@ main h1 {
     
 }
 
-.zapatos .zapatosImagen img{
+.pantalones .pantalonesImagen img {
     position: absolute;
 }
 
-.zapatos .zapatosImagen img:nth-child(2){
+.pantalones .pantalonesImagen img:nth-child(2){
 
     opacity: 0;
     transition: 0.2s ease-in;
 }
 
-.zapatos .zapatosImagen img:nth-child(2):hover{
+.pantalones .pantalonesImagen img:nth-child(2):hover{
     opacity: 1;
 }
 
-.zapatos .zapatosImagen img:nth-child(2):hover + .zapatos .zapatosImagen img:nth-child(1):hover{
+.pantalones .pantalonesImagen img:nth-child(2):hover + .pantalones .pantalonesImagen video:nth-child(1):hover{
     opacity: 0;
 }
 
-
-.zapatos .zapatosImagen img{
+.pantalones .pantalonesImagen video {
     width: 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -191,7 +178,17 @@ main h1 {
     object-fit: cover;
 }
 
-.zapatosDescripcion {
+.pantalones .pantalonesImagen img{
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 75%;
+    object-fit: cover;
+}
+
+.pantalonesDescripcion {
     position: absolute;
     bottom: 0px;
     width: 100%;
@@ -210,15 +207,15 @@ main h1 {
 }
 
 
-.zapatosDescripcion :first-child {
+.pantalonesDescripcion :first-child {
     font-family: "Black";
 }
 
-.zapatosDescripcion :nth-child(2) {
+.pantalonesDescripcion :nth-child(2) {
     font-family: "Light";
 }
 
-.zapatosDescripcion button {
+.pantalonesDescripcion button {
     position: absolute;
     background-color: var(--color-gray);
     color: var(--color-white);
@@ -232,7 +229,7 @@ main h1 {
     transition: 0.2s;
 }
 
-.zapatosDescripcion button:hover {
+.pantalonesDescripcion button:hover {
     background-color: var(--color-white);
     color: var(--color-gray);
     scale: 1.1;
