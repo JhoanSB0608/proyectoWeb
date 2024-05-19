@@ -60,13 +60,13 @@ aside p {
 
 .productOptions a img,
 .carrito img {
-    filter: brightness(0) invert(1); /* Cambia el color del logo a blanco */
-    transition: filter 0.3s ease; /* Agrega una transición suave */
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
 }
 
 .productOptions a:hover img,
 .carrito:hover img {
-    filter: brightness(0) invert(0); /* Cambia el color del logo a negro */
+    filter: brightness(0) invert(0);
 }
 
 .productOption,
@@ -109,13 +109,13 @@ main {
     padding: .1rem 1rem 1rem 1rem;
     height: 100%;
     background-color: var(--color-white);
-    border-radius: 40px ;
+    border-radius: 40px;
     gap: 5px;
     overflow-y: scroll;
-    -webkit-border-radius: 40px ;
-    -moz-border-radius: 40px ;
-    -ms-border-radius: 40px ;
-    -o-border-radius: 40px ;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
     box-shadow: 0 0 5px #fff, 0 0 10px #929292, 0 0 15px #929292, 0 0 20px #929292, 0 0 25px #929292;
     animation: glow 1.5s ease-in-out infinite alternate;
 }
@@ -134,7 +134,7 @@ main h1 {
     grid-template-columns: repeat(auto-fill, minmax(33.3vh, 1fr));
 }
 
-.abrigos{
+.abrigos {
     height: 39vh;
     border-radius: 25px;
     position: relative;
@@ -148,34 +148,32 @@ main h1 {
     -o-border-radius: 25px;
 }
 
-.abrigos:hover{
-
+.abrigos:hover {
     scale: 1.05;
     border: none;
     box-shadow: 0px 0px 10px var(--color-gray);
-    
 }
 
-.abrigos .abrigosImagen img{
+.abrigos .abrigosImagen img {
     position: absolute;
 }
 
-.abrigos .abrigosImagen img:nth-child(2){
+.abrigos .abrigosImagen img:nth-child(2) {
 
     opacity: 0;
     transition: 0.2s ease-in;
 }
 
-.abrigos .abrigosImagen img:nth-child(2):hover{
+.abrigos .abrigosImagen img:nth-child(2):hover {
     opacity: 1;
 }
 
-.abrigos .abrigosImagen img:nth-child(2):hover + .abrigos .abrigosImagen img:nth-child(1):hover{
+.abrigos .abrigosImagen img:nth-child(2):hover+.abrigos .abrigosImagen img:nth-child(1):hover {
     opacity: 0;
 }
 
 
-.abrigos .abrigosImagen img{
+.abrigos .abrigosImagen img {
     width: 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -233,7 +231,7 @@ main h1 {
 }
 
 @media (max-width: 765px) {
-    
+
     body {
         padding: 0;
         grid-template-rows: 110px 1fr;
