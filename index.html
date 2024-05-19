@@ -1,527 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <title>CampusShop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
-
 <body>
-    <aside>
-        <h1>CampusShop</h1>
-        <div class="productOptions">
-            <a href="index.html" class="productOption">
-                <img width="40" height="40" src="https://img.icons8.com/fluency-systems-regular/48/border-all--v2.png"
-                    alt="border-all--v2" />
-                <p>Todos los productos</p>
-            </a>
-            <a href="views/abrigos.html" class="productOption">
-                <img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/coat.png" alt="coat" />
-                <p>Abrigos</p>
-            </a>
-            <a href="views/camisas.html" class="productOption">
-                <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png"
-                    alt="t-shirt--v1" />
-                <p>Camisetas</p>
-            </a>
-            <a href="views/pantalones.html" class="productOption">
-                <img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/trousers.png" alt="trousers" />
-                <p>Pantalones</p>
-            </a>
 
-        </div>
-        <a href="views/carrito.html" class="carrito">
-            <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/shopping-cart.png"
-                alt="shopping-cart" />
-            <p>Carrito</p>
-            <span>3</span>
-        </a>
-        <p id="copy">©2023 AMIRI by JhoanSB</p>
-    </aside>
-    <main>
-        <h1>Todos los productos</h1>
-        <div class="PRODUCTS">
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/29_PRE-SPRING_2024_KNITWEAR_TOP_AMIRI_20REPEAT_20HOODIE_PS24MKH003_GREY_3dec5ea3-23be-49e3-bbca-22b9c5b7fafe.jpg?v=1707665218&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/29C_02_PRE-SPRING_2024_KNITWEAR_TOP_AMIRI_20REPEAT_20HOODIE_PS24MKH003_GREY_1259_69123e8d-8dc5-4149-b014-c3e36f9bd3f5.jpg?v=1707665218&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 01</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
+    <div class="wrapper">
+        <header class="header-mobile">
+            <h1 class="logo">CampusShop</h1>
+            <button class="open-menu" id="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header>
+        <aside>
+            <button class="close-menu" id="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header>
+                <h1 class="logo">CampusShop</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <button id="todos" class="boton-menu boton-categoria active"><img width="40" height="40" color="white" src="https://img.icons8.com/fluency-systems-regular/48/border-all--v2.png"
+                            alt="border-all--v2" /> Todos los productos</button>
+                    </li>
+                    <li>
+                        <button id="abrigos" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/coat.png" alt="coat" /> Abrigos</button>
+                    </li>
+                    <li>
+                        <button id="camisetas" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png"
+                            alt="t-shirt--v1" /> Camisetas</button>
+                    </li>
+                    <li>
+                        <button id="pantalones" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/trousers.png" alt="trousers" /> Pantalones</button>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./carrito.html">
+                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/shopping-cart.png"
+                alt="shopping-cart" /> Carrito <span id="numerito" class="numerito">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2024 AMIRI By JhoanSB</p>
+            </footer>
+        </aside>
+        <main>
+            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!-- Esto se va a rellenar con JS -->
             </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/35_PRE-SPRING_2024_KNITWEAR_TOP_BANDANA_20HOODIE_PS24MKH002_BLACK_129ff0f5-4695-4022-8121-d7c547122902.jpg?v=1707664373&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/35_02_PRE-SPRING_2024_KNITWEAR_TOP_BANDANA_20HOODIE_PS24MKH002_BLACK_1523.jpg?v=1707664373&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 02</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/23_INDIGO_20SKYLINE_KNITWEAR_TOP_HOLIDAY_20CAPSULE_20SWEATER_ASHEY_20BLUE_AMKNCW1041-856_1.jpg?v=1706125398&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/23_INDIGO_20SKYLINE_KNITWEAR_TOP_HOLIDAY_20CAPSULE_20SWEATER_ASHEY_20BLUE_AMKNCW1041-856_2.jpg?v=1706125398&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Abrigo 03</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/20_INDIGO_20SKYLINE_JERSEY_TOP_HOLIDAY_20CAPSULE_20HOODIE_FADED_20BLACK_1_20_1.jpg?v=1707662558&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/20_INDIGO_20SKYLINE_JERSEY_TOP_HOLIDAY_20CAPSULE_20HOODIE_FADED_20BLACK_AMJYHD1048-051_2_9a7c6b9f-11c9-492e-81fd-a1c221546c15.jpg?v=1707662558&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Abrigo 04</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/21_INDIGO_20SKYLINE_JERSEY_TOP_HOLIDAY_20CAPSULE_20HOODIE_ASHLEY_20BLUE_AMJYHD1048-856_1_12fad4ad-9f27-4cae-95b5-9759bd044ba5.jpg?v=1706048261&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/21_INDIGO_20SKYLINE_JERSEY_TOP_HOLIDAY_20CAPSULE_20HOODIE_ASHLEY_20BLUE_AMJYHD1048-856_2_dbb918be-617a-4acf-953e-2a1ff88d972b.jpg?v=1706048261&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 05</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/2_AW23_MENS_JERSEY_TOP_TGCW_20CRYSTAL_20EAGLE_20HOODIE_VINTAGE_20BLACK_EXTGMJL002-097_1_c0e02089-c814-430c-9d1b-df8b353dbfe8.jpg?v=1707664469&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/2_AW23_MENS_JERSEY_TOP_TGCW_20CRYSTAL_20EAGLE_20HOODIE_VINTAGE_20BLACK_EXTGMJL002-097_02.jpg?v=1707664469&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Abrigo 06</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/1_AW23_MENS_JERSEY_TOP_TGCW_20EAGLE_20HOODIE_VINTAGE_20BLUE_EXTGMJL001-420_1.jpg?v=1708557754&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/1_AW23_MENS_JERSEY_TOP_TGCW_20EAGLE_20HOODIE_VINTAGE_20BLUE_EXTGMJL001-420_02_55de3b29-7560-486e-9136-09f7ea35b7f2.jpg?v=1708557754&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Abrigo 07</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/88_AW23_Runway_JERSEY_TOP_AMIRI_20PREEMO_20HOODIE_AW23MJG012-001_BLACK.jpg?v=1707665602&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/88_02_AW23_Runway_JERSEY_TOP_AMIRI_20PREEMO_20HOODIE_AW23MJG012-001_BLACK_1854.jpg?v=1707665602&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 08</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/87_JERSEY_TOP_MALOGOHOODIE_PF23MJL009-610_RED.jpg?v=1708558480&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/87_02_JERSEY_TOP_MALOGOHOODIE_PF23MJL009-610_RED_1513_a2deab5d-b2e0-432a-b731-ebdc67814a8b.jpg?v=1708558480&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 09</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/122_PRE-SS24_MENS_JERSEY_TOP_DISTRESSED_20ARTS_20DISTRICT_20HOODIE_BLACK_1381886d-5366-4ff4-b90a-fe1294e2915b.jpg?v=1705778415&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/122_PRE-SS24_MENS_JERSEY_TOP_DISTRESSED_20ARTS_20DISTRICT_20HOODIE_BLACK_02_4706.jpg?v=1705778415&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 10</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/58_PRE-SPRING_2024_JERSEY_TOP_AMIRI_20TRACK_20HOODIE_AMJYHD1003_FADED_20BLACK_445225bb-2b1e-4b48-b655-55aa6346811b.jpg?v=1707662678&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/58_PRE-SPRING_2024_JERSEY_TOP_AMIRI_20TRACK_20HOODIE_AMJYHD1003_FADED_20BLACK_02_1211_98f0a21c-a6bf-4f76-bc8c-6c684c5c3bc9.jpg?v=1707662678&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 11</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img
-                        src="https://amiri.com/cdn/shop/products/81_SS24_MENS_JERSEY_TOP_AMJYHD1021-460_WASHED_20MA_20SHOTGUN_20HOODIE_GRAY_20DAWN_3f061082-95f2-404d-916d-23cfde7b65af.jpg?v=1709002244&width=1440">
-                    <img
-                        src="https://amiri.com/cdn/shop/products/81_02_SS24_MENS_JERSEY_TOP_AMJYHD1021-460_WASHED_20MA_20SHOTGUN_20HOODIE_GRAY_20DAWN_3826_465d76c6-4a84-497f-8184-a499ae53df30.jpg?v=1709002244&width=1440">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Abrigo 12</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/54_SS24_MENS_JERSEY_TOP_AMJYTE1028-001_AIRBRUSH_20CHERUB_20TEE_BLACK_6c6f7d8b-28a0-4ccb-b5a5-bf2e00adfa87.jpg?v=1707665661&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/54_02_SS24_MENS_JERSEY_TOP_AMJYTE1028-001_AIRBRUSH_20CHERUB_20TEE_BLACK_4282.jpg?v=1707665661&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 01</p>
-                    <p>$1.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/13_SUPER_20BOWL_JERSEY_TOP_JERSEY_20SKATER_20TEE_RED_1_70440bbc-2816-4a6d-b210-cc3fd62edf19.jpg?v=1708042221&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/13_SUPER_20BOWL_JERSEY_TOP_JERSEY_20SKATER_20TEE_RED_2_77f80315-d44e-4c14-b68f-7a808bac1a6f.jpg?v=1708042221&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 02</p>
-                    <p>$5.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/6_SUPER_20BOWL_SHIRT_TOP_MESH_20FOOTBAL_20JERSEY_WHITE_1_83722ab1-924c-4b04-b921-e07d0e66e7d8.jpg?v=1708558424&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/6_SUPER_20BOWL_SHIRT_TOP_MESH_20FOOTBAL_20JERSEY_WHITE_2_e475fd9e-4755-4fea-9cf5-a39f471b17b1.jpg?v=1708558424&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 03</p>
-                    <p>$3.500</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/5_SUPER_20BOWL_SHIRT_TOP_MESH_20FOOTBALL_20JERSEY_BLACK_1_d57988cc-9fc3-4117-8dcd-2f98868bbbf4.jpg?v=1708042226&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/5_SUPER_20BOWL_SHIRT_TOP_MESH_20FOOTBALL_20JERSEY_BLACK_2_e45f3688-ce6b-4cfc-a39c-504221d39270.jpg?v=1708042226&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 04</p>
-                    <p>$1.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/115_PRE-SS24_MENS_JERSEY_TOP_CNY_20DRAGON_20TEE_BLACK_638f9123-8d64-44f5-bbc3-cf76b42fa14f.jpg?v=1706124816&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/115_PRE-SS24_MENS_JERSEY_TOP_CNY_20DRAGON_20TEE_BLACK_02_4553.jpg?v=1706124816&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 05</p>
-                    <p>$3.500</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/116_PRE-SS24_MENS_JERSEY_TOP_MA_20BAR_20TEE_SLATE_20BLACK.jpg?v=1706125401&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/116_02_PRE-SS24_MENS_JERSEY_TOP_MA_20BAR_20TEE_SLATE_20BLACK_573_d8670dbc-bf65-4efd-954c-3ff909675134.jpg?v=1706125401&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 06</p>
-                    <p>$1.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/73_PRE-SPRING_2024_JERSEY_TOP_MA_20BAR_20TEE_PS24MJL007_WHITE.jpg?v=1707662863&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/73_02_PRE-SPRING_2024_JERSEY_TOP_MA_20BAR_20TEE_PS24MJL007_WHITE_0528_4d2fd1c4-25d3-4ec6-a019-498382f291c0.jpg?v=1707662863&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 07</p>
-                    <p>$5.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/72_PRE-SPRING_2024_JERSEY_TOP_MA_20BAR_20TEE_PS24MJL007_BLACK_f001a881-9c90-413b-bb6c-24d2973a798a.jpg?v=1706047911&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/72_02_PRE-SPRING_2024_JERSEY_TOP_MA_20BAR_20TEE_PS24MJL007_BLACK_0391_0ce230da-2db1-4b26-9b6c-a70d4249c780.jpg?v=1706047911&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 08</p>
-                    <p>$3.500</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/60_SS24_MENS_JERSEY_TOP_AMJYTE1008-365_AMIRI_20CORE_20LOGO_20TEE_CREAM_20TAN_86033a3b-43d4-4300-8da7-d19d1e4066af.jpg?v=1709626235&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/60_02_SS24_MENS_JERSEY_TOP_AMJYTE1008-365_AMIRI_20CORE_20LOGO_20TEE_CREAM_20TAN_2967_f876a074-305f-4499-84f1-54945415fca2.jpg?v=1709626235&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 09</p>
-                    <p>$1.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/83_AW23_Runway_JERSEY_TOP_FLOCKED_20HOCKEY_20SKATER_20TEE_AW23MJG030-001_BLACK.jpg?v=1707665494&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/83_02_AW23_Runway_JERSEY_TOP_FLOCKED_20HOCKEY_20SKATER_20TEE_AW23MJG030-001_BLACK_1149.jpg?v=1707665494&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 10</p>
-                    <p>$3.500</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/67_SS24_MENS_JERSEY_TOP_AMJYTE1026-312_MA_20LOGO_20DIP_20DYE_20TEE_MINERAL_20GREEN_27c50aeb-e9e0-4f60-a262-7574f4b35dc9.jpg?v=1706767892&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/67_02_SS24_MENS_JERSEY_TOP_AMJYTE1026-312_MA_20LOGO_20DIP_20DYE_20TEE_MINERAL_20GREEN_4245_9ec45d89-b78d-4c4f-b2a4-67f20f9826cc.jpg?v=1706767892&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 11</p>
-                    <p>$1.000</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/100_JERSEY_TOP_AMIRI_20ARTS_20DISTRICT_20PIQUE_20POLO_PF23MSS046-100_WHITE.jpg?v=1708740644&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/100_03_JERSEY_TOP_AMIRIPOLO_PF23MSS046-100_WHITE_1458_4aa89c35-e521-4e7e-8aa9-64382c27e890.jpg?v=1708740644&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <p>Camiseta 12</p>
-                    <p>$3.500</p>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img
-                        src="https://amiri.com/cdn/shop/products/170_PXMJS003-001_MA_20CORE_20LOGO_20SWEATPANT_BLACK_PS22_3092_14744ce2-d3c8-40d4-9e80-b61fff7388f0.jpg?v=1708985430&width=1440">
-                    <img src="https://amiri.com/cdn/shop/products/170_05_PXMJS003-001_MA_20CORE_20LOGO_20SWEATPANT_BLACK_PS22_3086_fab97edc-2b0d-4018-b059-b31ed7ba1555.jpg?v=1708985430&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 01</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/55_PRE-SPRING_2024_JERSEY_BOTTOM_AMIRI_20STAGGERED_20SWEATPANT_PS24MJL017_BLACK.jpg?v=1708558732&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/55_07_PRE-SPRING_2024_JERSEY_BOTTOM_AMIRI_20STAGGERED_20SWEATPANT_PS24MJL017_BLACK_0477.jpg?v=1708558732&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 02</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/57_SS24_MENS_JERSEY_BOTTOM_AMJYSP1011-001_AMIRI_20ANGEL_20SWEATPANT_BLACK_2173d6df-ae1a-48dc-911d-077491201039.jpg?v=1708557623&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/57_07_SS24_MENS_JERSEY_BOTTOM_AMJYSP1011-001_AMIRI_20ANGEL_20SWEATPANT_BLACK_0392_63f7dc9b-f46b-45cd-bb8f-046960217136.jpg?v=1708557623&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Pantalon 03</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/54_PRE-SPRING_2024_JERSEY_BOTTOM_AMIRI_20STAGGERED_20SWEATPANT_PS24MJL017_RAIN_20FOREST_bcc25ba7-8331-4c83-a91c-37fa9378c976.jpg?v=1708882251&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/54_07_PRE-SPRING_2024_JERSEY_BOTTOM_AMIRI_20STAGGERED_20SWEATPANT_PS24MJL017_RAIN_20FOREST_0488.jpg?v=1708882251&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Pantalon 04</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/84_SS24_MENS_DENIM_BOTTOM_AMDNSY1014-051_AMIRI_20ANGEL_20JEAN_FADED_20BLACK.jpg?v=1708072234&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/84_06_SS24_MENS_DENIM_BOTTOM_AMDNSY1014-051_AMIRI_20ANGEL_20JEAN_FADED_20BLACK_4163.jpg?v=1708072235&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 05</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/98_02_SS24_MENS_DENIM_BOTTOM_AMDNSY1016-018_20_TIE_20DYE_20CORE_20LOGO_20JEAN_BLACK_20OD_0151_1c2f4a0d-a9f8-471d-b2d2-380e691dd219.jpg?v=1707665181&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/98_04_SS24_MENS_DENIM_BOTTOM_AMDNSY1016-018_20_TIE_20DYE_20CORE_20LOGO_20JEAN_BLACK_20OD_0156.jpg?v=1707665181&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Pantalon 06</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/126_01_AW23_Runway_DENIM_BOTTOM_MX1_20JEAN_EXMDS019-246_VINTAGE_20INDIGO_GOJI_20BERRY_2208182a-1032-4c1b-b010-6e5e51d33238.jpg?v=1707662579&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/126_06_AW23_Runway_DENIM_BOTTOM_MX1_20JEAN_EXMDS019-246_VINTAGE_20INDIGO_GOJI_20BERRY_1697_UPDATED_7e01fe1e-60a9-4d29-9476-1c11813e61e6.jpg?v=1707662579&width=1440"
-                        alt="">
-                </div>
-
-                <div class="productDescripcion">
-                    <h3>Pantalon 07</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/80_PRE-SPRING_2024_DENIM_BOTTOM_CORE_20LOGO_20BANDANA_20JCQRD_20JEAN_AMDNSY1011_VINTAGE_20INDIGO.jpg?v=1702327523&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/80_PRE-SPRING_2024_DENIM_BOTTOM_CORE_20LOGO_20BANDANA_20JCQRD_20JEAN_AMDNSY1011_VINTAGE_20INDIGO_06_4024.jpg?v=1702327523&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 08</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/83_PRE-SPRING_2024_DENIM_BOTTOM_DISTRESSED_20ARTS_20DISTRICT_20JEAN_AMDNSY1009_BLACK_20OD.jpg?v=1708557620&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/83_06_PRE-SPRING_2024_DENIM_BOTTOM_DISTRESSED_20ARTS_20DISTRICT_20JEAN_AMDNSY1009_BLACK_20OD_2315.jpg?v=1708557620&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 09</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/100_PRE-SPRING_2024_DENIM_BOTTOM_WAXED_20LOGO_20JEAN_AMDNSY1010_BLACK.jpg?v=1708556492&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/100_06_PRE-SPRING_2024_DENIM_BOTTOM_WAXED_20LOGO_20JEAN_AMDNSY1010_BLACK_529.jpg?v=1708556492&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 10</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/89_SS24_MENS_DENIM_BOTTOM_AMDNSY1021-426_BOUCLE_20LOGO_20MX1_20JEAN_PERFECT_20INDIGO_d76c1b3c-9e48-4044-af63-4f05156f978f.jpg?v=1708558650&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/89_06_SS24_MENS_DENIM_BOTTOM_AMDNSY1021-426_BOUCLE_20LOGO_20MX1_20JEAN_PERFECT_20INDIGO_3988_97b94919-bd10-4674-8805-5f9572228f8c.jpg?v=1708558650&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 11</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-            <div class="product">
-                <div class="productImagen">
-                    <img src="https://amiri.com/cdn/shop/products/131_DENIM_BOTTOM_CRYSTALEMBELLISHEDLOGOJEAN_PF23MDS015-518_FADEDBLACK.jpg?v=1707665118&width=1440"
-                        alt="">
-                    <img src="https://amiri.com/cdn/shop/products/131_06_DENIM_BOTTOM_CRYSTALEMBELLISHEDLOGOJEAN_PF23MDS015-518_FADEDBLACK_1867.jpg?v=1707665118&width=1440"
-                        alt="">
-                </div>
-                <div class="productDescripcion">
-                    <h3>Pantalon 12</h3>
-                    <h5>$1000</h5>
-                    <button>Agregar</button>
-                </div>
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
-
 </html>
