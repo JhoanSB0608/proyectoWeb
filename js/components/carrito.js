@@ -126,3 +126,21 @@ function actualizarTotal() {
     const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
     contenedorTotal.innerText = `$${totalCalculado}`;
 }
+
+// Función para comprar el carrito
+function comprarCarrito() {
+    productosEnCarrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    
+    contenedorCarritoVacio.classList.add("disabled");
+    contenedorCarritoProductos.classList.add("disabled");
+    contenedorCarritoAcciones.classList.add("disabled");
+    contenedorCarritoComprado.classList.remove("disabled");
+}
+
+// Inicializar el carrito
+cargarProductosCarrito();
+
+// Añadir eventos a los botones
+botonVaciar.addEventListener("click", vaciarCarrito);
+botonComprar.addEventListener("click", comprarCarrito);
