@@ -101,3 +101,28 @@ function eliminarDelCarrito(e) {
     cargarProductosCarrito();
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
+
+// Función para vaciar el carrito
+function vaciarCarrito() {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        icon: 'question',
+        html: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} productos.`,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productosEnCarrito.length = 0;
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            cargarProductosCarrito();
+        }
+    });
+}
+
+// Función para actualizar el total del carrito
+function actualizarTotal() {
+    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    contenedorTotal.innerText = `$${totalCalculado}`;
+}
