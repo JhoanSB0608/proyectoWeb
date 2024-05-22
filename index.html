@@ -1,68 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CampusShop</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+    <link rel="stylesheet" href="./src/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
 <body>
-
-    <div class="wrapper">
-        <header class="header-mobile">
-            <h1 class="logo">CampusShop</h1>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </header>
-        <aside>
-            <button class="close-menu" id="close-menu">
-                <i class="bi bi-x"></i>
-            </button>
-            <header>
-                <h1 class="logo">CampusShop</h1>
-            </header>
-            <nav>
-                <ul class="menu">
-                    <li>
-                        <button id="todos" class="boton-menu boton-categoria active"><img width="40" height="40" color="white" src="https://img.icons8.com/fluency-systems-regular/48/border-all--v2.png"
-                            alt="border-all--v2" /> Todos los productos</button>
-                    </li>
-                    <li>
-                        <button id="abrigos" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/coat.png" alt="coat" /> Abrigos</button>
-                    </li>
-                    <li>
-                        <button id="camisetas" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png"
-                            alt="t-shirt--v1" /> Camisetas</button>
-                    </li>
-                    <li>
-                        <button id="pantalones" class="boton-menu boton-categoria"><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/trousers.png" alt="trousers" /> Pantalones</button>
-                    </li>
-                    <li>
-                        <a class="boton-menu boton-carrito" href="./carrito.html">
-                            <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/shopping-cart.png"
-                alt="shopping-cart" /> Carrito <span id="numerito" class="numerito">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <footer>
-                <p class="texto-footer">© 2024 AMIRI By JhoanSB</p>
-            </footer>
-        </aside>
-        <main>
-            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
-            <div id="contenedor-productos" class="contenedor-productos">
-                <!-- Esto se va a rellenar con JS -->
-            </div>
-        </main>
-    </div>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="./js/components/main.js"></script>
-    <script src="./js/modules/menu.js"></script>
+  <my-element></my-element>
 </body>
 </html>
+
+
+
