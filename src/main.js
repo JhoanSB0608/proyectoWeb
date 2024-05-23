@@ -1,42 +1,321 @@
-import { LitElement, css, html } from 'lit'
+// Importa los módulos necesarios desde la biblioteca lit
+import { LitElement, css, html } from 'lit';
+// Importa la biblioteca SweetAlert2 para mostrar mensajes emergentes
 import Swal from 'sweetalert2';
+// Importa la función getProducts del archivo getdata.js
 import { getProducts } from "./getdata.js";
 
+// Define la clase del componente personalizado Myelement
 class Myelement extends LitElement {
+    // Define las propiedades del componente
     static get properties() {
         return {
+            // Categoría activa actualmente
             activeCategory: { type: String },
+            // Vista actual: 'products' o 'cart'
             view: { type: String },
+            // Elementos del carrito
             cartItems: { type: Array },
+            // Productos disponibles
             products: { type: Array },
+            // Indica si el menú está abierto o cerrado
             menuOpen: { type: Boolean }
         };
     }
 
+    // Constructor de la clase
     constructor() {
         super();
-        this.activeCategory = 'all';
-        this.view = 'products';
-        this.cartItems = [];
-        this.products = [];
-        this.menuOpen = false;
+        // Inicializa las propiedades del componente
+        this.activeCategory = 'all'; // Inicia con la categoría 'all'
+        this.view = 'products'; // Inicia mostrando los productos
+        this.cartItems = []; // Inicializa el carrito como vacío
+        this.products = []; // Inicializa los productos como vacío
+        this.menuOpen = false; // Inicializa el menú como cerrado
+        // Llama a la función para obtener los productos al crear el componente
         this.obtenerDataProductos();
     }
 
+
+    // Método llamado cuando el componente se conecta al DOM
     connectedCallback() {
         super.connectedCallback();
+        // Llama a la función para obtener los productos al conectarse al DOM
         this.obtenerDataProductos();
     }
 
+
+    // Función asincrónica para obtener los productos
     async obtenerDataProductos() {
         try {
+            // Obtiene los productos utilizando la función getProducts() del archivo getdata.js
             this.products = await getProducts();
-            this.requestUpdate(); // Asegúrate de actualizar la vista después de obtener los productos
+            // Solicita una actualización del componente para reflejar los cambios
+            this.requestUpdate();
         } catch (error) {
+            // Muestra un mensaje de error si ocurre algún problema al obtener los productos
             console.error('Error al obtener los productos:', error);
         }
     }
     
+    render() {
+        return html`
+            <div class="wrapper">
+                <header class="header__Mobile">
+                    <h1 class="logo">CampusShop</h1>
+                    <button class="open__menue" @click="${this.openMenu}">
+                        <img class="menu__svg" src="./public/menu.svg" alt="">
+                    </button>
+                </header>
+                <aside class="${this.menuOpen ? 'aside-visible' : ''}">
+                    <header class="header__menue">
+                        <h1 class="logo">CampusShop</h1>
+                        <button class="close__menue" @click="${this.closeMenu}">
+                            <img class="closeMenu__svg" src="./public/closeMenu__svg.svg" alt="">
+                        </button>
+                    </header>
+                    <nav>
+                        <ul class="menue">
+                            <li><button class="button__Category ${this.activeCategory === 'all' ? 'active' : ''}" @click=${() => this.changeCategory('all')}><img width="40" height="40" color="white" src="https://img.icons8.com/fluency-systems-regular/48/border-all--v2.png"
+                            alt="border-all--v2" />All products</button></li>
+                            <li><button class="button__Category ${this.activeCategory === 'abrigos' ? 'active' : ''}" @click=${() => this.changeCategory('abrigos')}><img color="white" width="40" height="40" src="https://img.icons8.com/glyph-neue/64/coat.png" alt="coat" />Abrigos</button></li>
+                            <li><button class="button__Category ${this.activeCategory === 'camisas' ? 'active' : ''}" @click=${() => this.changeCategory('camisas')}><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png"
+                            alt="t-shirt--v1" />Camisetas</button></li>
+                            <li><button class="button__Category ${this.activeCategory === 'pantalones' ? 'active' : ''}" @click=${() => this.changeCategory('pantalones')}><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/trousers.png" alt="trousers" />Pantalones</button></li>
+                            <li style="width: 100%;">
+                                <a class="cart__Button ${this.view === 'cart' ? 'active' : ''}" @click=${this.viewCart}> <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/shopping-cart.png"
+                                alt="shopping-cart" />
+                                    Carrito
+                                    <span class="number">${this.cartItems.length}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <footer>
+                        <p class="footer__text">© 2024 AMIRI By JhoanSB0608</p>
+                    </footer>
+                </aside>
+                <main>
+                    ${this.view === 'products' ? this.renderProducts() : this.renderCart()}
+                </main>
+            </div>
+        `;
+    }
+
+    // Método para cambiar a la vista del carrito
+    viewCart() {
+        this.activeCategory = null;
+        this.view = 'cart';
+        this.menuOpen = false;
+        this.requestUpdate();
+    }
+
+    // Método para cambiar la categoría de productos
+    changeCategory(category) {
+        this.activeCategory = category;
+        this.view = 'products';
+        this.menuOpen = false;
+        this.requestUpdate();
+    }
+
+   // Método para renderizar la vista de productos
+    renderProducts() {
+        const filteredProducts = this.products.filter(product => this.activeCategory === 'all' || product.category === this.activeCategory);
+        // console.log('Active Category:', this.activeCategory);
+        return html`
+            <h2 class="principal__Title">${this.activeCategory === 'all' ? 'Todos los productos' : this.activeCategory.charAt(0).toUpperCase() + this.activeCategory.slice(1)}</h2>
+            <div class="product__container">
+                ${filteredProducts.map(product => html`
+                    <div class="products">
+                        <img class="product__Image" src=${product.image} alt="">
+                        <div class="product__Details">
+                            <h3 class="product__Title">${product.title}</h3>
+                            <p class="product__Price">$${product.price}</p>
+                            <button class="add__product" @click=${() => this.addToCart(product)}>Agregar</button>
+                        </div>
+                    </div>
+                `)}
+            </div>
+        `;
+    }
+
+    // Método para renderizar la vista del carrito
+    renderCart() {
+        const total = this.cartItems.reduce((acc, item) => acc + item.subtotal, 0);
+
+        return html`
+            <h2 class="principal__Title">Carrito de Compras</h2>
+            ${this.cartItems.length > 0 ? html`
+                <div class="cart__Container"> 
+                    ${this.cartItems.map(item => html`
+                    <div class="product__Cart"> 
+                        <img class="cart__Image" src="${item.image}" alt="">
+                        <div class="content__Product">
+                            <small>Product</small>    
+                            <h3>${item.title}</h3>
+                        </div>
+                        <div class="cart__Amount">
+                            <small>Amount</small>
+                            <p>${item.quantity}</p>
+                        </div>
+                        <div class="cart__Price">
+                            <small>Price</small>
+                            <p>$${item.price}</p>
+                        </div>
+                        <div class="cart__Subtotal">
+                            <small>Subtotal</small>
+                            <p>$${item.subtotal}</p>
+                        </div>
+                        <button class="cart__Delete" @click=${() => this.removeFromCart(item.id)}>
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                    `)}
+                </div>
+                <div class="cart__Actions">
+                    <div class="cart__Actions_Left">
+                        <button class="cart__Actions_Delete" @click=${this.emptyCart}>Vaciar Carrito</button>
+                    </div>
+                    <div class="cart__Actions_Right">
+                        <div class="cart__Actions_Total">
+                            <p>Total:</p>
+                            <p>$${total}</p>
+                        </div>
+                        <button class="cart__Actions_Buy" @click=${() => this.compra()}>Buy now!</button>
+                    </div>
+                </div>
+            ` : html`<div class="kitty"><p>Tu carrito está vacío. . .</p><img class="Cat" src="./public/Cat.svg" alt=""></div>`}
+        `;
+    }
+
+    // Método para eliminar un elemento del carrito
+    removeFromCart(productId) {
+        const itemIndex = this.cartItems.findIndex(item => item.id === productId);
+        if (itemIndex > -1) {
+            if (this.cartItems[itemIndex].quantity > 1) {
+                this.cartItems[itemIndex].quantity -= 1;
+                this.cartItems[itemIndex].subtotal = this.cartItems[itemIndex].quantity * this.cartItems[itemIndex].price;
+            } else {
+                this.cartItems = this.cartItems.filter(item => item.id !== productId);
+            }
+        }
+        this.requestUpdate();
+        this.removed();
+    }
+
+   // Método para vaciar el carrito
+    emptyCart() {
+        this.cartItems = [];
+        this.requestUpdate();
+        this.vaciarCarrito();
+    }
+
+    // Método para agregar un producto al carrito
+    addToCart(product) {
+        // Muestra un mensaje indicando que el producto ha sido agregado
+        added();
+        const cartItem = this.cartItems.find(item => item.id === product.id);
+        if (cartItem) {
+            cartItem.quantity += 1;
+            cartItem.subtotal = cartItem.quantity * cartItem.price;
+        } else {
+            this.cartItems = [
+                ...this.cartItems,
+                { ...product, quantity: 1, subtotal: product.price }
+            ];
+        }
+        this.requestUpdate();
+    }
+
+    openMenu() {
+        this.menuOpen = true;
+        this.requestUpdate();
+    }
+
+    closeMenu() {
+        this.menuOpen = false;
+        this.requestUpdate();
+    }
+
+// Método para mostrar un mensaje cuando se elimina un producto del carrito
+    removed() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Producto Eliminado"
+        });
+    }
+
+    // Método para la compra
+    compra() {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "Compra exitosa"
+        });
+    }
+
+    // Método para vaciar el carrito con confirmación del usuario
+    emptyCart() {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            icon: 'question',
+            html: `Se van a borrar ${this.cartItems.length} productos.`,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.vaciarCarrito();
+            }
+        });
+    }    
+    
+    async vaciarCarrito() {
+        const productosEnCarrito = JSON.parse(localStorage.getItem('cart')) || [];
+        return new Promise((resolve, reject) => {
+            Swal.fire({
+                title: '¿Estás seguro?',
+                icon: 'question',
+                html: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} productos.`,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: 'Sí',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    productosEnCarrito.length = 0;
+                    localStorage.setItem("cart", JSON.stringify(productosEnCarrito));
+                    this.cartItems = []; // Limpiar el carrito localmente
+                    this.requestUpdate(); // Actualizar la vista
+                    resolve(); // Resolver la promesa después de vaciar el carrito
+                } else {
+                    reject(); // Rechazar la promesa si se cancela la acción
+                }
+            });
+        });
+    }
 
     static styles = css`
     .wrapper {
@@ -582,253 +861,6 @@ class Myelement extends LitElement {
         }
     }
     `;
-
-    render() {
-        return html`
-            <div class="wrapper">
-                <header class="header__Mobile">
-                    <h1 class="logo">CampusShop</h1>
-                    <button class="open__menue" @click="${this.openMenu}">
-                        <img class="menu__svg" src="./public/menu.svg" alt="">
-                    </button>
-                </header>
-                <aside class="${this.menuOpen ? 'aside-visible' : ''}">
-                    <header class="header__menue">
-                        <h1 class="logo">CampusShop</h1>
-                        <button class="close__menue" @click="${this.closeMenu}">
-                            <img class="closeMenu__svg" src="./public/closeMenu__svg.svg" alt="">
-                        </button>
-                    </header>
-                    <nav>
-                        <ul class="menue">
-                            <li><button class="button__Category ${this.activeCategory === 'all' ? 'active' : ''}" @click=${() => this.changeCategory('all')}><img width="40" height="40" color="white" src="https://img.icons8.com/fluency-systems-regular/48/border-all--v2.png"
-                            alt="border-all--v2" />All products</button></li>
-                            <li><button class="button__Category ${this.activeCategory === 'abrigos' ? 'active' : ''}" @click=${() => this.changeCategory('abrigos')}><img color="white" width="40" height="40" src="https://img.icons8.com/glyph-neue/64/coat.png" alt="coat" />Abrigos</button></li>
-                            <li><button class="button__Category ${this.activeCategory === 'camisas' ? 'active' : ''}" @click=${() => this.changeCategory('camisas')}><img width="40" height="40" src="https://img.icons8.com/ios-filled/50/t-shirt--v1.png"
-                            alt="t-shirt--v1" />Camisetas</button></li>
-                            <li><button class="button__Category ${this.activeCategory === 'pantalones' ? 'active' : ''}" @click=${() => this.changeCategory('pantalones')}><img width="40" height="40" src="https://img.icons8.com/glyph-neue/64/trousers.png" alt="trousers" />Pantalones</button></li>
-                            <li style="width: 100%;">
-                                <a class="cart__Button ${this.view === 'cart' ? 'active' : ''}" @click=${this.viewCart}> <img width="40" height="40" src="https://img.icons8.com/ios-filled/50/shopping-cart.png"
-                                alt="shopping-cart" />
-                                    Carrito
-                                    <span class="number">${this.cartItems.length}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <footer>
-                        <p class="footer__text">© 2024 AMIRI By JhoanSB0608</p>
-                    </footer>
-                </aside>
-                <main>
-                    ${this.view === 'products' ? this.renderProducts() : this.renderCart()}
-                </main>
-            </div>
-        `;
-    }
-
-    viewCart() {
-        this.activeCategory = null;
-        this.view = 'cart';
-        this.menuOpen = false;
-        this.requestUpdate();
-    }
-
-    changeCategory(category) {
-        this.activeCategory = category;
-        this.view = 'products';
-        this.menuOpen = false;
-        this.requestUpdate();
-    }
-
-    renderProducts() {
-        const filteredProducts = this.products.filter(product => this.activeCategory === 'all' || product.category === this.activeCategory);
-        // console.log('Active Category:', this.activeCategory);
-        return html`
-            <h2 class="principal__Title">${this.activeCategory === 'all' ? 'Todos los productos' : this.activeCategory.charAt(0).toUpperCase() + this.activeCategory.slice(1)}</h2>
-            <div class="product__container">
-                ${filteredProducts.map(product => html`
-                    <div class="products">
-                        <img class="product__Image" src=${product.image} alt="">
-                        <div class="product__Details">
-                            <h3 class="product__Title">${product.title}</h3>
-                            <p class="product__Price">$${product.price}</p>
-                            <button class="add__product" @click=${() => this.addToCart(product)}>Agregar</button>
-                        </div>
-                    </div>
-                `)}
-            </div>
-        `;
-    }
-
-    renderCart() {
-        const total = this.cartItems.reduce((acc, item) => acc + item.subtotal, 0);
-
-        return html`
-            <h2 class="principal__Title">Carrito de Compras</h2>
-            ${this.cartItems.length > 0 ? html`
-                <div class="cart__Container"> 
-                    ${this.cartItems.map(item => html`
-                    <div class="product__Cart"> 
-                        <img class="cart__Image" src="${item.image}" alt="">
-                        <div class="content__Product">
-                            <small>Product</small>    
-                            <h3>${item.title}</h3>
-                        </div>
-                        <div class="cart__Amount">
-                            <small>Amount</small>
-                            <p>${item.quantity}</p>
-                        </div>
-                        <div class="cart__Price">
-                            <small>Price</small>
-                            <p>$${item.price}</p>
-                        </div>
-                        <div class="cart__Subtotal">
-                            <small>Subtotal</small>
-                            <p>$${item.subtotal}</p>
-                        </div>
-                        <button class="cart__Delete" @click=${() => this.removeFromCart(item.id)}>
-                            <i class='bx bx-trash'></i>
-                        </button>
-                    </div>
-                    `)}
-                </div>
-                <div class="cart__Actions">
-                    <div class="cart__Actions_Left">
-                        <button class="cart__Actions_Delete" @click=${this.emptyCart}>Vaciar Carrito</button>
-                    </div>
-                    <div class="cart__Actions_Right">
-                        <div class="cart__Actions_Total">
-                            <p>Total:</p>
-                            <p>$${total}</p>
-                        </div>
-                        <button class="cart__Actions_Buy" @click=${() => this.compra()}>Buy now!</button>
-                    </div>
-                </div>
-            ` : html`<div class="kitty"><p>Tu carrito está vacío. . .</p><img class="Cat" src="./public/Cat.svg" alt=""></div>`}
-        `;
-    }
-
-    removeFromCart(productId) {
-        const itemIndex = this.cartItems.findIndex(item => item.id === productId);
-        if (itemIndex > -1) {
-            if (this.cartItems[itemIndex].quantity > 1) {
-                this.cartItems[itemIndex].quantity -= 1;
-                this.cartItems[itemIndex].subtotal = this.cartItems[itemIndex].quantity * this.cartItems[itemIndex].price;
-            } else {
-                this.cartItems = this.cartItems.filter(item => item.id !== productId);
-            }
-        }
-        this.requestUpdate();
-        this.removed();
-    }
-
-    emptyCart() {
-        this.cartItems = [];
-        this.requestUpdate();
-        this.vaciarCarrito();
-    }
-
-    addToCart(product) {
-        added();
-        const cartItem = this.cartItems.find(item => item.id === product.id);
-        if (cartItem) {
-            cartItem.quantity += 1;
-            cartItem.subtotal = cartItem.quantity * cartItem.price;
-        } else {
-            this.cartItems = [
-                ...this.cartItems,
-                { ...product, quantity: 1, subtotal: product.price }
-            ];
-        }
-        this.requestUpdate();
-    }
-
-    openMenu() {
-        this.menuOpen = true;
-        this.requestUpdate();
-    }
-
-    closeMenu() {
-        this.menuOpen = false;
-        this.requestUpdate();
-    }
-
-    removed() {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: "success",
-            title: "Producto Eliminado"
-        });
-    }
-
-    compra() {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: "success",
-            title: "Compra exitosa"
-        });
-    }
-    emptyCart() {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            icon: 'question',
-            html: `Se van a borrar ${this.cartItems.length} productos.`,
-            showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText: 'Sí',
-            cancelButtonText: 'No'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.vaciarCarrito();
-            }
-        });
-    }    
-    
-    async vaciarCarrito() {
-        const productosEnCarrito = JSON.parse(localStorage.getItem('cart')) || [];
-        return new Promise((resolve, reject) => {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                icon: 'question',
-                html: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} productos.`,
-                showCancelButton: true,
-                focusConfirm: false,
-                confirmButtonText: 'Sí',
-                cancelButtonText: 'No'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    productosEnCarrito.length = 0;
-                    localStorage.setItem("cart", JSON.stringify(productosEnCarrito));
-                    this.cartItems = []; // Limpiar el carrito localmente
-                    this.requestUpdate(); // Actualizar la vista
-                    resolve(); // Resolver la promesa después de vaciar el carrito
-                } else {
-                    reject(); // Rechazar la promesa si se cancela la acción
-                }
-            });
-        });
-    }    
 }
 
 const added = async () => {
@@ -848,5 +880,7 @@ const added = async () => {
         title: "Producto Agregado Exitosamente"
     });
 }
+
+
 
 customElements.define('my-element', Myelement);
