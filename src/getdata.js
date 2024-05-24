@@ -1,6 +1,6 @@
 export async function getProducts() {
     try {
-        const response = await fetch("http://localhost:3000/productos");
+        const response = await fetch("http://172.16.101.146:5539/productos");
         const data = await response.json();
         return data.map(item => ({
             id: item.id,

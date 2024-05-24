@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "json-server src/products.json 5531"
+    "json": "json-server src/products.json -p 5539"
   },
   "dependencies": {
     "lit": "^3.1.2",
